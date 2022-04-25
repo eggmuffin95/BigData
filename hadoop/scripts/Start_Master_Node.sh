@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 # Notice: --endpoint-mode dnsrr is required
 

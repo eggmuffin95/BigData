@@ -1,4 +1,4 @@
-FROM alpine:3.15.4
+FROM alpine:3.12.12
 
 MAINTAINER Yann DANIEL <yann.daniel@karmel-it.com>
 
@@ -6,7 +6,7 @@ MAINTAINER Yann DANIEL <yann.daniel@karmel-it.com>
 USER root
 
 # install required packages
-RUN apk add --no-cache openssh openssl openjdk8-jre rsync bash procps nss
+RUN apk upgrade && apk add --no-cache openssh openssl openjdk8-jre rsync bash procps nss
 
 # set JAVA_HOME
 ENV JAVA_HOME /usr/lib/jvm/java-1.8-openjdk
@@ -27,11 +27,11 @@ RUN echo "Port 22" >> /etc/ssh/sshd_config
 RUN passwd -u root
 
 # install Hadoop
-RUN wget -O hadoop.tar.gz https://archive.apache.org/dist/hadoop/common/hadoop-3.3.2/hadoop-3.3.2.tar.gz && \
+RUN wget -O hadoop.tar.gz https://archive.apache.org/dist/hadoop/common/hadoop-2.7.4/hadoop-2.7.4.tar.gz && \
 tar -xzf hadoop.tar.gz -C /usr/local/ && rm hadoop.tar.gz
 
 # create a soft link to make it transparent when upgrade Hadoop
-RUN ln -s /usr/local/hadoop-3.3.2 /usr/local/hadoop
+RUN ln -s /usr/local/hadoop-2.7.4 /usr/local/hadoop
 
 # set Hadoop enviroments
 ENV HADOOP_HOME /usr/local/hadoop
