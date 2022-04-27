@@ -12,7 +12,7 @@ docker service create \
 	--mount type=bind,source=/Users/yann/Documents/GitHub/BigData/hadoop/config,target=/config/hadoop \
 	--mount type=bind,source=/Users/yann/Documents/GitHub/BigData/hadoop/hdfs/slave1,target=/tmp/hadoop-root \
 	--mount type=bind,source=/Users/yann/Documents/GitHub/BigData/hadoop/logs/slave1,target=/usr/local/hadoop/logs \
-  eggmuffin95/hadoop:3.3.2
+  eggmuffin95/hadoop:2.7.4
 
 docker service create \
 	--name hadoop-slave2 \
@@ -24,7 +24,7 @@ docker service create \
 	--mount type=bind,source=/Users/yann/Documents/GitHub/BigData/hadoop/config,target=/config/hadoop \
 	--mount type=bind,source=/Users/yann/Documents/GitHub/BigData/hadoop/hdfs/slave2,target=/tmp/hadoop-root \
 	--mount type=bind,source=/Users/yann/Documents/GitHub/BigData/hadoop/logs/slave2,target=/usr/local/hadoop/logs \
-	eggmuffin95/hadoop:3.3.2
+	eggmuffin95/hadoop:2.7.4
 
 docker service create \
 	--name hadoop-slave3 \
@@ -36,4 +36,4 @@ docker service create \
 	--mount type=bind,source=/Users/yann/Documents/GitHub/BigData/hadoop/config,target=/config/hadoop \
 	--mount type=bind,source=/Users/yann/Documents/GitHub/BigData/hadoop/hdfs/slave3,target=/tmp/hadoop-root \
 	--mount type=bind,source=/Users/yann/Documents/GitHub/BigData/hadoop/logs/slave3,target=/usr/local/hadoop/logs \
-	eggmuffin95/hadoop:3.3.2
+	eggmuffin95/hadoop:2.7.4

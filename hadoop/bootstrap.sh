@@ -1,7 +1,7 @@
 #!/bin/bash
 
 : ${HADOOP_PREFIX:=/usr/local/hadoop}
-
+chmod +x $HADOOP_PREFIX/etc/hadoop/hadoop-env.sh
 $HADOOP_PREFIX/etc/hadoop/hadoop-env.sh
 
 rm /tmp/*.pid
@@ -10,7 +10,7 @@ rm /tmp/*.pid
 cd $HADOOP_PREFIX/share/hadoop/common ; for cp in ${ACP//,/ }; do  echo == $cp; curl -LO $cp ; done; cd -
 
 # replace config files if provided
-cp /mnt/hadoop-config/* $HADOOP_PREFIX/etc/hadoop/
+cp /config/hadoop/* $HADOOP_PREFIX/etc/hadoop/
 
 # start sshd
 /usr/sbin/sshd
